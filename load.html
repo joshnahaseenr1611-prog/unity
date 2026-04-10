@@ -1,0 +1,114 @@
+-------------another method with profileedit simple homepage----------------------------------------------------------------------------<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SYSTEM_INIT | Neural Link</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0;
+}
+
+.scanline-overlay {
+  background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.25) 50%),
+              linear-gradient(90deg, rgba(255,0,0,0.06), rgba(0,255,0,0.02), rgba(0,0,255,0.06));
+  background-size: 100% 4px, 3px 100%;
+}
+
+.kinetic-ember-glow {
+  text-shadow: 0 0 12px rgba(255,185,124,0.6);
+}
+
+.bar-glow {
+  box-shadow: 0 0 15px rgba(255,145,0,0.5);
+}
+
+@keyframes progress-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+.animate-scan {
+  animation: progress-scan 2s linear infinite;
+}
+</style>
+</head>
+
+<body class="bg-black text-white overflow-hidden h-screen">
+
+<!-- ✅ BACKGROUND (UNCHANGED) -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover opacity-70"
+src="https://lh3.googleusercontent.com/aida/ADBb0uiwO6wI8boFGfbwY1Wq3QLeTtOrVXUqadRbiR1ssaVAAt-uux7M6xfpmFewaiWs6zWfVcJKOLEylazoxLBNohNxcZ6WM5Gi4dqWwrg2B8j9bhqhQWIQkOK0BSsY1rE1I66Jfax1T9lZN5VklDdEUBEZnY0Oayoh-OVyYuQyqk349tdy8PQ94svm8FP6tY00RyeMzc1Qn891CpF0rQV8K8Dx-zEcY1VEStA4fm2dAF4dJ6S-E8stTJSJ-lYYRt8KTuzJwSNpg6o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40"></div>
+<div class="absolute inset-0 scanline-overlay opacity-20"></div>
+</div>
+
+<!-- MAIN -->
+<main class="relative z-10 h-full flex flex-col items-center justify-center">
+
+<!-- TEXT -->
+<div class="mb-6 text-orange-400 text-xs tracking-widest uppercase">
+ESTABLISHING NEURAL LINK...
+</div>
+
+<!-- % -->
+<div class="text-7xl font-bold text-orange-400 kinetic-ember-glow mb-10">
+<span id="loading-counter">0</span>%
+</div>
+
+<!-- BAR -->
+<div class="w-64 h-1 bg-gray-700 relative overflow-hidden">
+<div id="loading-bar"
+class="absolute left-0 top-0 h-full w-0 bg-orange-500 bar-glow"></div>
+
+<div class="absolute top-0 h-full w-12 bg-white/20 blur-md animate-scan"></div>
+</div>
+
+<!-- ✅ START BUTTON -->
+<a href="home.html" id="start-btn"
+class="mt-10 hidden px-6 py-3 border border-orange-400 text-orange-400 tracking-widest uppercase hover:bg-orange-400 hover:text-black transition-all">
+ENTER SYSTEM
+</a>
+
+</main>
+
+<script>
+function animateLoading() {
+  const counter = document.getElementById('loading-counter');
+  const bar = document.getElementById('loading-bar');
+  const btn = document.getElementById('start-btn');
+
+  let progress = 0;
+
+  function update() {
+    if (progress < 100) {
+      let inc = Math.random() < 0.3 ? Math.random()*0.5 : Math.random()*1.5;
+      progress = Math.min(100, progress + inc);
+
+      counter.textContent = Math.floor(progress);
+      bar.style.width = progress + "%";
+
+      setTimeout(update, Math.random()*100 + 20);
+    } else {
+      counter.textContent = "100";
+      bar.style.width = "100%";
+
+      // ✅ SHOW BUTTON
+      btn.classList.remove("hidden");
+    }
+  }
+
+  update();
+}
+
+window.onload = animateLoading;
+</script>
+
+</body>
+</html>
