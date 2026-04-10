@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>TACTICAL_OS | COMMAND_INTERFACE</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0;
+}
+
+/* 🔥 GLASS CARD */
+.glass-card {
+  background: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 185, 124, 0.15);
+}
+
+/* 🔥 HOVER EFFECT */
+.card-hover {
+  transition: all 0.4s ease;
+}
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 145, 0, 0.4);
+  border-color: rgba(255, 145, 0, 0.6);
+}
+
+/* TEXT GLOW */
+.text-glow {
+  text-shadow: 0 0 12px rgba(255,185,124,0.6);
+}
+</style>
+</head>
+
+<body class="bg-black text-white h-screen overflow-hidden">
+
+<!-- BACKGROUND -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover"
+src="https://lh3.googleusercontent.com/aida/ADBb0uhZm7Y_K4ujoINAvJ3T0X7mZpH24fFLUnRp2DGilg8z377-Ab_VFYhE_4n-3UhCC9rHMroIcKAqgc5lgvVjK37xi1xpVlARIEGlD_V3QvxiV-k6pZVq6Ub40pOT567d2cPjmb7cgN9g8e0Z6RHNBgQXZzdeS4dnIf38IUpz1JUB-V7gv4Cus-Au2fCA1MDimzkumrdUEwtNf4uBCTfZ5vM3weVP5ccy998Gm_SVe4pN7HEt5E6ImYBptIud2Kzre8XkCzWIyNYx"/>
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+
+<!-- MAIN -->
+<div class="relative z-10 h-full flex flex-col justify-between p-10">
+
+<!-- PROFILE (TOP RIGHT) -->
+<div class="flex justify-end">
+
+<!-- ✅ ONLY FIXED HERE -->
+<a href="profile.html" onclick="openProfile(event)" class="glass-card p-4 w-[300px] text-right card-hover">
+
+<div class="flex justify-end gap-4 items-center">
+<div>
+<div class="text-orange-400 font-bold text-lg text-glow">KALEB_STERN</div>
+<div class="text-xs text-gray-400">UNIT_01 // SPECIALIST</div>
+</div>
+
+<div class="w-12 h-12 border border-orange-400 overflow-hidden">
+<img class="w-full h-full object-cover"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3z7QSR8o06gVNSjqkHwgSY2xAGRjDeLUZvpuvLK_aydgcsdV8TJO4oJolBlECdBSVM3-tFiDJooAcJsP3uUHnC4GjWh4Cgx2LMF9ILIaEj89cIRF42ggRBiq7Qy52epeguu755RrJD-CFzDsIdw-gCs_jSr4Io2rvMlSk-ZrI7lNj9yGDeUSfEduYC8GKCiRx3OqFzDY3TKkdRf_eRPl1S4fVcFKedHmi0W1LBTBk41k_YYm01JNaDYfyU27GPGhSbuKpe3bF-w"/>
+</div>
+</div>
+
+<div class="mt-2 text-[10px] text-gray-400">
+Edit Profile →
+</div>
+
+</a>
+
+</div>
+
+<!-- CENTER BUTTONS -->
+<div class="flex justify-center items-center gap-10 flex-grow">
+
+<!-- START -->
+<div class="glass-card card-hover w-64 h-64 flex flex-col justify-between p-6 cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-orange-400">bolt</span>
+<div>
+<div class="text-3xl font-bold text-white">START</div>
+<div class="text-xs text-gray-400 mt-2">
+INITIALIZE NEW MISSION PARAMETERS
+</div>
+</div>
+</div>
+
+<!-- RESUME -->
+<div class="glass-card card-hover w-64 h-64 flex flex-col justify-between p-6 cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-gray-400">play_arrow</span>
+<div>
+<div class="text-3xl font-bold text-white">RESUME</div>
+<div class="text-xs text-gray-400 mt-2">
+CONTINUE LAST ACTIVE SESSION
+</div>
+</div>
+</div>
+
+<!-- HISTORY -->
+<div class="glass-card card-hover w-64 h-64 flex flex-col justify-between p-6 cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-gray-400">history</span>
+<div>
+<div class="text-3xl font-bold text-white">END HISTORY</div>
+<div class="text-xs text-gray-400 mt-2">
+REVIEW ARCHIVED COMBAT INTEL
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- ✅ FIX SCRIPT ONLY -->
+<script>
+function openProfile(event){
+  event.preventDefault(); // stop default link behavior
+  window.location.href = "profile.html"; // force navigation
+}
+</script>
+
+</body>
+</html>
